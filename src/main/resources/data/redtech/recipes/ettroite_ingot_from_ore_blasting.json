@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "redtech:ettroite_ore"
+  },
+  "result": "redtech:ettroite_ingot",
+  "experience": 1,
+  "cookingtime": 100
+}

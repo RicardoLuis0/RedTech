@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "ettroite_alloy_ingot",
   "pattern": [
     "###",
     "###",
@@ -7,10 +8,10 @@
   ],
   "key": {
     "#": {
-      "item": "redtech:ettroite_nugget"
+      "item": "redtech:ettroite_alloy_ingot"
     }
   },
   "result": {
-    "item": "redtech:ettroite_ingot"
+    "item": "redtech:ettroite_alloy_block"
   }
 }

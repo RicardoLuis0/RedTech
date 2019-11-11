@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "redtech:shinerock_block"
+          "name": "redtech:ettroite_alloy_block"
         }
       ],
       "conditions": [

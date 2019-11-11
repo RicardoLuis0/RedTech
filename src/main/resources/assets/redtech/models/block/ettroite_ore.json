@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "redtech:block/broken_ettroite_ore"
+        "all": "redtech:block/ettroite_ore"
     }
 }

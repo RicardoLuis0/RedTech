@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "ettroite_alloy_ingot",
+  "ingredients": [
+    {
+      "item": "redtech:ettroite_alloy_ingot"
+    }
+  ],
+  "result": {
+    "item": "redtech:ettroite_alloy_nugget",
+    "count": 9
+  }
+}

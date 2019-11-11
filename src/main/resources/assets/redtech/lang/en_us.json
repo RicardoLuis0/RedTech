@@ -1,17 +1,18 @@
 {
-    "itemGroup.redtech.shinerocktab1": "§5Shinerock Mod",
+    "itemGroup.redtech.modtab": "§cRedTech",
 
-    "block.redtech.shinerock_ore": "Shinerock Ore",
-    "item.redtech.shinerock_shard": "Shinerock Shard",
+    "item.redtech.shinerock": "Shinerock",
     "item.redtech.shinerock_dust": "Shinerock Dust",
-    "block.redtech.shinerock_block": "Shinerock Block",
-    "block.redtech.shinerock_lamp": "Shinerock Lamp",
+
+    "item.redtech.iron_dust": "Iron Dust",
+    "item.redtech.gold_dust": "Gold Dust",
 
     "block.redtech.ettroite_ore": "Ettroite Ore",
     "item.redtech.ettroite_dust": "Ettroite Dust",
-    "ite,.redtech.ettroite_nugget": "Ettroite Nugget",
-    "item.redtech.ettroite_ingot": "Ettroite Ingot",
-    "block.redtech.ettroite_block": "Ettroite Block",
-    "item.redtech.ettroite_sword": "Ettroite Sword"
+    "item.redtech.ettroite_alloy_dust": "Ettroite Alloy Dust",
+    "item.redtech.ettroite_alloy_nugget": "Ettroite Alloy Nugget",
+    "item.redtech.ettroite_alloy_ingot": "Ettroite Alloy Ingot",
+    "block.redtech.ettroite_alloy_block": "Ettroite Alloy Block",
+    "item.redtech.ettroite_alloy_sword": "Ettroite Sword"
 
 }

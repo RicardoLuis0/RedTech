@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "redtech:item/ettroite_nugget"
+        "layer0": "redtech:item/gold_dust"
     }
 }

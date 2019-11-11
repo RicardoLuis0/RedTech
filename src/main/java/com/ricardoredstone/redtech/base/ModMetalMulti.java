@@ -1,22 +1,23 @@
 package com.ricardoredstone.redtech.base;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.event.RegistryEvent;
 
 public class ModMetalMulti implements ModObject {
-    ModSimpleItem dust;
-    ModSimpleItem nugget;
-    ModSimpleItem ingot;
-    ModSimpleBlock block;
+    public ModSimpleItem dust;
+    public ModSimpleItem nugget;
+    public ModSimpleItem ingot;
+    public ModSimpleBlock block;
 
     public ModMetalMulti(String name){
         dust=new ModSimpleItem(name+"_dust", new Item.Properties().group(ItemGroup.MATERIALS));
         nugget=new ModSimpleItem(name+"_nugget", new Item.Properties().group(ItemGroup.MATERIALS));
         ingot=new ModSimpleItem(name+"_ingot", new Item.Properties().group(ItemGroup.MATERIALS));
-        block=new ModSimpleBlock(name+"_block", Block.Properties.create(Material.IRON));
+        block=new ModSimpleBlock(name+"_block", Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL));
     }
 
     @Override

@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 public class ModRegistry {
 
-    final ArrayList<ModObject> registry;
+    private final ArrayList<ModObject> registry;
 
     public ModRegistry(){
-        registry = new ArrayList<ModObject>();
+        registry = new ArrayList<>();
     }
 
     public ModObject addObject(ModObject obj) {

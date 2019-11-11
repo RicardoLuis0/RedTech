@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "redtech:ettroite_alloy_dust"
+    "tag": "forge:dusts/ettroite_alloy"
   },
   "result": "redtech:ettroite_alloy_ingot",
   "experience": 0,

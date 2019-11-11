@@ -1,16 +1,34 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "group": "ettroite_alloy_ingot",
-  "pattern": [
-    "###",
-    "###",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "redtech:ettroite_alloy_ingot"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/ettroite_alloy"
+    },
+    {
+      "tag": "forge:ingots/ettroite_alloy"
+    },
+    {
+      "tag": "forge:ingots/ettroite_alloy"
+    },
+    {
+      "tag": "forge:ingots/ettroite_alloy"
+    },
+    {
+      "tag": "forge:ingots/ettroite_alloy"
+    },
+    {
+      "tag": "forge:ingots/ettroite_alloy"
+    },
+    {
+      "tag": "forge:ingots/ettroite_alloy"
+    },
+    {
+      "tag": "forge:ingots/ettroite_alloy"
+    },
+    {
+      "tag": "forge:ingots/ettroite_alloy"
     }
-  },
+  ],
   "result": {
     "item": "redtech:ettroite_alloy_block"
   }

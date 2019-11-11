@@ -1,16 +1,35 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "group": "ettroite_alloy_ingot",
-  "pattern": [
-    "###",
-    "###",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "redtech:ettroite_alloy_nugget"
+  "ingredients": [
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
+    },
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
+    },
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
+    },
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
+    },
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
+    },
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
+    },
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
+    },
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
+    },
+    {
+      "tag": "forge:nuggets/ettroite_alloy"
     }
-  },
+  ],
   "result": {
     "item": "redtech:ettroite_alloy_ingot"
   }

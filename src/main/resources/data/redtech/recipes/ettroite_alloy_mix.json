@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IEI",
+    "EIE",
+    "IEI"
+  ],
+  "key": {
+    "E": {
+      "tag": "forge:dusts/ettroite"
+    },
+    "I": {
+      "tag": "forge:dusts/iron"
+    }
+  },
+  "result": {
+    "item": "redtech:ettroite_alloy_mix",
+    "count": 9
+  }
+}

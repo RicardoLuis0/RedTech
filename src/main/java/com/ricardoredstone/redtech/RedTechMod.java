@@ -6,7 +6,7 @@ import com.ricardoredstone.redtech.implementation.proxy.ServerProxy;
 import com.ricardoredstone.redtech.implementation.registry.ModBlocks;
 import com.ricardoredstone.redtech.implementation.registry.ModItems;
 import com.ricardoredstone.redtech.implementation.registry.ModMulti;
-import com.ricardoredstone.redtech.implementation.registry.EventDispatcher;
+import com.ricardoredstone.redtech.implementation.registry.ModRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
@@ -30,6 +30,8 @@ public final class RedTechMod {
     public static final Proxy PROXY;
     public static final Logger LOGGER;
 
+    public static final ModRegistry MOD_REGISTRY;
+
     public static final ModBlocks BLOCKS;
     public static final ModItems ITEMS;
     public static final ModMulti MULTI;
@@ -47,7 +49,7 @@ public final class RedTechMod {
             default:
                 throw new IllegalStateException("INVALID SIDE");
         }
-
+        MOD_REGISTRY= new ModRegistry();
         MULTI = new ModMulti();
         BLOCKS = new ModBlocks();
         ITEMS = new ModItems();
@@ -61,11 +63,11 @@ public final class RedTechMod {
     }
 
     private void setupCommon(final FMLCommonSetupEvent event) {
-        EventDispatcher.setupCommon(event);
+        MOD_REGISTRY.setupCommon(event);
     }
 
     private void setupClient(final FMLClientSetupEvent event) {
-        EventDispatcher.setupClient(event);
+        MOD_REGISTRY.setupClient(event);
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD Event bus for receiving Registry Events)
@@ -73,17 +75,17 @@ public final class RedTechMod {
     public static class RegistryEvents {
         @SubscribeEvent
         public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-            EventDispatcher.registerBlocks(event);
+            MOD_REGISTRY.registerBlocks(event);
         }
 
         @SubscribeEvent
         public static void registerItems(final RegistryEvent.Register<Item> event) {
-            EventDispatcher.registerItems(event);
+            MOD_REGISTRY.registerItems(event);
         }
 
         @SubscribeEvent
         public static void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
-            EventDispatcher.registerTileEntities(event);
+            MOD_REGISTRY.registerTileEntities(event);
         }
     }
 }

@@ -10,37 +10,37 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import java.util.ArrayList;
 
-public class EventDispatcher {
+public class ModRegistry {
 
-    static final ArrayList<ModObject> registry;
+    final ArrayList<ModObject> registry;
 
-    static {
+    public ModRegistry(){
         registry = new ArrayList<ModObject>();
     }
 
-    public static ModObject addObject(ModObject obj) {
+    public ModObject addObject(ModObject obj) {
         registry.add(obj);
         return obj;
     }
 
-    public static void setupCommon(final FMLCommonSetupEvent event){
+    public void setupCommon(final FMLCommonSetupEvent event){
         registry.forEach((e) -> e.setupCommon(event));
 
     }
 
-    public static void setupClient(final FMLClientSetupEvent event){
+    public void setupClient(final FMLClientSetupEvent event){
         registry.forEach((e) -> e.setupClient(event));
     }
 
-    public static void registerBlocks(final RegistryEvent.Register<Block> event) {
+    public void registerBlocks(final RegistryEvent.Register<Block> event) {
         registry.forEach((e) -> e.registerBlocks(event));
     }
 
-    public static void registerItems(final RegistryEvent.Register<Item> event) {
+    public void registerItems(final RegistryEvent.Register<Item> event) {
         registry.forEach((e) -> e.registerItems(event));
     }
 
-    public static void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
+    public void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
         registry.forEach((e) -> e.registerTileEntities(event));
     }
 }

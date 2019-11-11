@@ -27,12 +27,12 @@ public class ModSimpleBlock extends Block implements ModObject {
     }
 
     @Override
-    public void registerBlock(final RegistryEvent.Register<Block> event) {
+    public void registerBlocks(final RegistryEvent.Register<Block> event) {
         event.getRegistry().register(this);
     }
 
     @Override
-    public void registerItem(final RegistryEvent.Register<Item> event) {
+    public void registerItems(final RegistryEvent.Register<Item> event) {
         event.getRegistry().register(blockItem);
     }
 

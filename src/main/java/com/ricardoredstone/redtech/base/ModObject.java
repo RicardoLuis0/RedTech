@@ -3,6 +3,7 @@ package com.ricardoredstone.redtech.base;
 import com.ricardoredstone.redtech.RedTechMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -22,11 +23,16 @@ public interface ModObject {
         //do nothing
     }
 
-    default void registerBlock(final RegistryEvent.Register<Block> event) {
+    default void registerBlocks(final RegistryEvent.Register<Block> event) {
         //do nothing
     }
 
-    default void registerItem(final RegistryEvent.Register<Item> event) {
+    default void registerItems(final RegistryEvent.Register<Item> event) {
         //do nothing
     }
+
+    default void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
+        //do nothing
+    }
+
 }

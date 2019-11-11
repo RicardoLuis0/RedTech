@@ -3,6 +3,7 @@ package com.ricardoredstone.redtech.implementation.registry;
 import com.ricardoredstone.redtech.base.ModObject;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -32,10 +33,14 @@ public class EventDispatcher {
     }
 
     public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-        registry.forEach((e) -> e.registerBlock(event));
+        registry.forEach((e) -> e.registerBlocks(event));
     }
 
     public static void registerItems(final RegistryEvent.Register<Item> event) {
-        registry.forEach((e) -> e.registerItem(event));
+        registry.forEach((e) -> e.registerItems(event));
+    }
+
+    public static void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
+        registry.forEach((e) -> e.registerTileEntities(event));
     }
 }

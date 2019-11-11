@@ -20,15 +20,15 @@ public class ModMetalMulti implements ModObject {
     }
 
     @Override
-    public void registerBlock(final RegistryEvent.Register<Block> event) {
-        block.registerBlock(event);
+    public void registerBlocks(final RegistryEvent.Register<Block> event) {
+        block.registerBlocks(event);
     }
 
     @Override
-    public void registerItem(final RegistryEvent.Register<Item> event) {
-        dust.registerItem(event);
-        nugget.registerItem(event);
-        ingot.registerItem(event);
-        block.registerItem(event);
+    public void registerItems(final RegistryEvent.Register<Item> event) {
+        dust.registerItems(event);
+        nugget.registerItems(event);
+        ingot.registerItems(event);
+        block.registerItems(event);
     }
 }

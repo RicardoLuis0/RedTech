@@ -9,6 +9,7 @@ import com.ricardoredstone.redtech.implementation.registry.ModMulti;
 import com.ricardoredstone.redtech.implementation.registry.EventDispatcher;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -78,6 +79,11 @@ public final class RedTechMod {
         @SubscribeEvent
         public static void registerItems(final RegistryEvent.Register<Item> event) {
             EventDispatcher.registerItems(event);
+        }
+
+        @SubscribeEvent
+        public static void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
+            EventDispatcher.registerTileEntities(event);
         }
     }
 }

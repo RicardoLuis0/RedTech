@@ -11,7 +11,7 @@ public class ModSimpleItem extends Item implements ModObject {
     }
 
     @Override
-    public void registerItem(final RegistryEvent.Register<Item> event) {
+    public void registerItems(final RegistryEvent.Register<Item> event) {
         event.getRegistry().register(this);
     }
 

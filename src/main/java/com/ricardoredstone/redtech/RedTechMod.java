@@ -22,7 +22,6 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(RedTechMod.MOD_ID)
 public final class RedTechMod {
     public static final String MOD_ID = "redtech";
@@ -70,8 +69,9 @@ public final class RedTechMod {
         MOD_REGISTRY.setupClient(event);
     }
 
+    @SuppressWarnings("unused")
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
+    public static final class RegistryEvents {
         @SubscribeEvent
         public static void registerBlocks(final RegistryEvent.Register<Block> event) {
             MOD_REGISTRY.registerBlocks(event);

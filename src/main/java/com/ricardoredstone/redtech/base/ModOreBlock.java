@@ -14,8 +14,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModOreBlock extends ModSimpleBlock {
 
-    final int count;
-    final CountRangeConfig spawn_range;
+    private final int count;
+    private final CountRangeConfig spawn_range;
 
     public ModOreBlock(String name,int count,CountRangeConfig spawn_range) {
         super(name, Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F,3.0F));

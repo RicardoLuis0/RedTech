@@ -7,13 +7,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.event.RegistryEvent;
 
-public class ModMetalMulti implements ModObject {
+public class ModMetal implements ModObject {
     public ModSimpleItem dust;
     public ModSimpleItem nugget;
     public ModSimpleItem ingot;
     public ModSimpleBlock block;
 
-    public ModMetalMulti(String name){
+    public ModMetal(String name){
         dust=new ModSimpleItem(name+"_dust", new Item.Properties().group(ItemGroup.MATERIALS));
         nugget=new ModSimpleItem(name+"_nugget", new Item.Properties().group(ItemGroup.MATERIALS));
         ingot=new ModSimpleItem(name+"_ingot", new Item.Properties().group(ItemGroup.MATERIALS));

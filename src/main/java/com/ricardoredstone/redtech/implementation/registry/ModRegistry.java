@@ -18,7 +18,7 @@ public class ModRegistry {
         registry = new ArrayList<>();
     }
 
-    public ModObject addObject(ModObject obj) {
+    public <T extends ModObject> T add(T obj) {
         registry.add(obj);
         return obj;
     }

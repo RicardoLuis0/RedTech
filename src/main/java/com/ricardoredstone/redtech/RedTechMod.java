@@ -3,10 +3,7 @@ package com.ricardoredstone.redtech;
 import com.ricardoredstone.redtech.base.Proxy;
 import com.ricardoredstone.redtech.implementation.proxy.ClientProxy;
 import com.ricardoredstone.redtech.implementation.proxy.ServerProxy;
-import com.ricardoredstone.redtech.implementation.registry.ModBlocks;
-import com.ricardoredstone.redtech.implementation.registry.ModItems;
-import com.ricardoredstone.redtech.implementation.registry.ModMulti;
-import com.ricardoredstone.redtech.implementation.registry.ModRegistry;
+import com.ricardoredstone.redtech.implementation.registry.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
@@ -29,11 +26,12 @@ public final class RedTechMod {
     public static final Proxy PROXY;
     public static final Logger LOGGER;
 
-    public static final ModRegistry MOD_REGISTRY;
+    public static final ModRegistry REGISTRY;
 
     public static final ModBlocks BLOCKS;
     public static final ModItems ITEMS;
-    public static final ModMulti MULTI;
+    public static final ModMetals MULTI;
+    public static final ModTileEntities TILE_ENTITIES;
 
     static {
         LOGGER = LogManager.getLogger();//initialize logger
@@ -48,10 +46,11 @@ public final class RedTechMod {
             default:
                 throw new IllegalStateException("INVALID SIDE");
         }
-        MOD_REGISTRY= new ModRegistry();
-        MULTI = new ModMulti();
+        REGISTRY = new ModRegistry();
+        MULTI = new ModMetals();
         BLOCKS = new ModBlocks();
         ITEMS = new ModItems();
+        TILE_ENTITIES = new ModTileEntities();
     }
 
     public RedTechMod() {
@@ -62,11 +61,11 @@ public final class RedTechMod {
     }
 
     private void setupCommon(final FMLCommonSetupEvent event) {
-        MOD_REGISTRY.setupCommon(event);
+        REGISTRY.setupCommon(event);
     }
 
     private void setupClient(final FMLClientSetupEvent event) {
-        MOD_REGISTRY.setupClient(event);
+        REGISTRY.setupClient(event);
     }
 
     @SuppressWarnings("unused")
@@ -74,17 +73,17 @@ public final class RedTechMod {
     public static final class RegistryEvents {
         @SubscribeEvent
         public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-            MOD_REGISTRY.registerBlocks(event);
+            REGISTRY.registerBlocks(event);
         }
 
         @SubscribeEvent
         public static void registerItems(final RegistryEvent.Register<Item> event) {
-            MOD_REGISTRY.registerItems(event);
+            REGISTRY.registerItems(event);
         }
 
         @SubscribeEvent
         public static void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
-            MOD_REGISTRY.registerTileEntities(event);
+            REGISTRY.registerTileEntities(event);
         }
     }
 }

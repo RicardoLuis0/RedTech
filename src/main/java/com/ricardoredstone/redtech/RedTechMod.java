@@ -7,6 +7,7 @@ import com.ricardoredstone.redtech.implementation.registry.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -33,6 +34,10 @@ public final class RedTechMod {
     public static final ModMetals MULTI;
     public static final ModTileEntities TILE_ENTITIES;
 
+
+    public static ResourceLocation makeResourceLocation(String name) {
+        return new ResourceLocation(MOD_ID, name);
+    }
     static {
         LOGGER = LogManager.getLogger();//initialize logger
 

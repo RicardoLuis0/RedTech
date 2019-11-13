@@ -3,7 +3,7 @@
   "group": "ettroite_alloy_ingot",
   "ingredients": [
     {
-      "tag": "forge:blocks/ettroite_alloy"
+      "tag": "forge:storage_blocks/ettroite_alloy"
     }
   ],
   "result": {

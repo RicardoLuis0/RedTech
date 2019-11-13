@@ -1,5 +1,6 @@
 package com.ricardoredstone.redtech.base;
 
+import com.ricardoredstone.redtech.RedTechMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -17,7 +18,7 @@ public class ModSimpleBlock extends Block implements ModObject {
 
     public ModSimpleBlock(String name, Block.Properties block_properties, Item.Properties item_properties) {
         super(block_properties);
-        ResourceLocation reg_name=ModObject.makeResourceLocation(name);
+        ResourceLocation reg_name= RedTechMod.makeResourceLocation(name);
         setRegistryName(reg_name);
         blockItem = new BlockItem(this, item_properties).setRegistryName(reg_name);
     }

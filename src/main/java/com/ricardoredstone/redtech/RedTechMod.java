@@ -6,6 +6,7 @@ import com.ricardoredstone.redtech.implementation.proxy.ServerProxy;
 import com.ricardoredstone.redtech.implementation.registry.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,6 +33,7 @@ public final class RedTechMod {
     public static final ModBlocks BLOCKS;
     public static final ModItems ITEMS;
     public static final ModMetals MULTI;
+    public static final ModRecipeSerializers RECIPE_SERIALIZERS;
     public static final ModTileEntities TILE_ENTITIES;
 
 
@@ -56,6 +58,7 @@ public final class RedTechMod {
         BLOCKS = new ModBlocks();
         ITEMS = new ModItems();
         TILE_ENTITIES = new ModTileEntities();
+        RECIPE_SERIALIZERS = new ModRecipeSerializers();
     }
 
     public RedTechMod() {
@@ -89,6 +92,11 @@ public final class RedTechMod {
         @SubscribeEvent
         public static void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
             REGISTRY.registerTileEntities(event);
+        }
+
+        @SubscribeEvent
+        public static void registerRecipeSerializers(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
+            REGISTRY.registerRecipeSerializers(event);
         }
     }
 }

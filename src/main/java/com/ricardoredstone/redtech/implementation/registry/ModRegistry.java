@@ -3,6 +3,7 @@ package com.ricardoredstone.redtech.implementation.registry;
 import com.ricardoredstone.redtech.base.ModObject;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -43,4 +44,9 @@ public class ModRegistry {
     public void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
         registry.forEach((e) -> e.registerTileEntities(event));
     }
+
+    public void registerRecipeSerializers(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
+        registry.forEach((e) -> e.registerRecipeSerializers(event));
+    }
+
 }

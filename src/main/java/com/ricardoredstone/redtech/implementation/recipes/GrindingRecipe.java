@@ -1,6 +1,7 @@
 package com.ricardoredstone.redtech.implementation.recipes;
 
 import com.google.gson.JsonObject;
+import com.ricardoredstone.redtech.RedTechMod;
 import com.ricardoredstone.redtech.util.RecipeHelper;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.inventory.IInventory;
@@ -12,18 +13,22 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.ForgeRegistryEntry;
+import org.apache.logging.log4j.Level;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class GrinderRecipe implements IRecipe<IInventory> {
-    private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<GrinderRecipe> {
-
+public class GrindingRecipe implements IRecipe<IInventory> {
+    private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<GrindingRecipe> {
+        {
+            setRegistryName(RedTechMod.makeResourceLocation("grinding"));
+        }
         @Override
-        public GrinderRecipe read(ResourceLocation recipeId, JsonObject json) {//CookingRecipeSerializer used as reference
-            return new GrinderRecipe(recipeId,
+        public GrindingRecipe read(ResourceLocation recipeId, JsonObject json) {//CookingRecipeSerializer used as reference
+            RedTechMod.LOGGER.log(Level.DEBUG,"Registering grinding recipe '"+recipeId+"'");
+            return new GrindingRecipe(recipeId,
                     JSONUtils.getString(json, "group", ""),
                     JSONUtils.getInt(json,"grindingtime",800),
                     RecipeHelper.getIngredient(json,"ingredient"),
@@ -33,16 +38,16 @@ public class GrinderRecipe implements IRecipe<IInventory> {
 
         @Nullable
         @Override
-        public GrinderRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
+        public GrindingRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
             String group=buffer.readString();
             int grindingTime=buffer.readInt();
             Ingredient ingredient=Ingredient.read(buffer);
             ItemStack result=buffer.readItemStack();
-            return new GrinderRecipe(recipeId,group,grindingTime,ingredient,result);
+            return new GrindingRecipe(recipeId,group,grindingTime,ingredient,result);
         }
 
         @Override
-        public void write(PacketBuffer buffer, GrinderRecipe recipe) {
+        public void write(PacketBuffer buffer, GrindingRecipe recipe) {
             buffer.writeString(recipe.group);
             buffer.writeInt(recipe.grindingTime);
             recipe.ingredient.write(buffer);
@@ -50,23 +55,23 @@ public class GrinderRecipe implements IRecipe<IInventory> {
         }
     }
 
-    private static class GrinderRecipeType implements IRecipeType<GrinderRecipe> {
+    private static class Type implements IRecipeType<GrindingRecipe> {
         public String toString(){
-            return "grinder";
+            return RedTechMod.MOD_ID+":grinding";
         }
     }
 
-    public static final IRecipeSerializer<GrinderRecipe> SERIALIZER = new Serializer();
-    public static final IRecipeType<GrinderRecipe> TYPE = new GrinderRecipeType();
-    public final ResourceLocation id;
-    public final String group;
+    public static final IRecipeSerializer<GrindingRecipe> SERIALIZER = new Serializer();
+    public static final IRecipeType<GrindingRecipe> TYPE = new Type();
 
+    private final ResourceLocation id;
+    private final String group;
     private final Ingredient ingredient;
     private final ItemStack result;
 
     private final int grindingTime;
 
-    GrinderRecipe(ResourceLocation id,String group,int grindingTime,Ingredient ingredient,ItemStack result){
+    GrindingRecipe(ResourceLocation id, String group, int grindingTime, Ingredient ingredient, ItemStack result){
         this.id=id;
         this.ingredient=ingredient;
         this.result=result;

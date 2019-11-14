@@ -1,6 +1,7 @@
 {
   "parent": "block/cube",
   "textures": {
+    "particle": "redtech:block/burner_machine_side",
     "down": "redtech:block/burner_machine_bottom",
     "up": "redtech:block/burner_machine_top",
     "east": "redtech:block/burner_machine_side",

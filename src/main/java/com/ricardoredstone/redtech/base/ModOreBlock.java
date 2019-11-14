@@ -9,6 +9,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -31,7 +32,7 @@ public class ModOreBlock extends ModSimpleBlock {
     }
 
     public ModOreBlock(String name,int count,CountRangeConfig spawn_range,int harverstLevel,boolean nether) {
-        super(name, Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F,3.0F).harvestLevel(harverstLevel));
+        super(name, Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F,3.0F).harvestLevel(harverstLevel).harvestTool(ToolType.PICKAXE));
         this.count=count;
         this.spawn_range=spawn_range;
         this.target=nether?OreFeatureConfig.FillerBlockType.NETHERRACK:OreFeatureConfig.FillerBlockType.NATURAL_STONE;

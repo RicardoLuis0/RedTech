@@ -2,6 +2,7 @@ package com.ricardoredstone.redtech.base;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -26,6 +27,10 @@ public interface ModObject {
     }
 
     default void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
+        //do nothing
+    }
+
+    default void registerRecipeSerializers(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
         //do nothing
     }
 

@@ -21,6 +21,7 @@ public class ModOreBlock extends ModSimpleBlock {
     public ModOreBlock(String name,int count,CountRangeConfig spawn_range){
         this(name,count,spawn_range,false);
     }
+
     public ModOreBlock(String name,int count,CountRangeConfig spawn_range,boolean nether) {
         super(name, Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F,3.0F));
         this.count=count;

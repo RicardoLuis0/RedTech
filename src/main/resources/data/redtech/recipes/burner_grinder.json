@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FFF",
+    "CPC",
+    "INI"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "C": {
+      "tag": "forge:cobblestone"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "N": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "redtech:burner_grinder"
+  }
+}

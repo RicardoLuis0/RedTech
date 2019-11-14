@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "redtech:block/burner_grinder" },
+    "facing=south": { "model": "redtech:block/burner_grinder", "y": 180 },
+    "facing=west": { "model": "redtech:block/burner_grinder", "y": 270 },
+    "facing=east": { "model": "redtech:block/burner_grinder", "y": 90 }
+  }
+}

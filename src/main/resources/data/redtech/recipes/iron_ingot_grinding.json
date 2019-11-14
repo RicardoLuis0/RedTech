@@ -1,0 +1,11 @@
+{
+  "type": "redtech:grinding",
+  "ingredient": {
+    "tag": "forge:ingots/iron"
+  },
+  "result": {
+    "item":"redtech:iron_dust",
+    "count": 1
+  },
+  "grindingtime": 400
+}

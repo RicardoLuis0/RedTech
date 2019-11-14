@@ -1,0 +1,10 @@
+{
+  "type": "redtech:grinding",
+  "ingredient": {
+    "tag": "forge:ores/ettroite"
+  },
+  "result": {
+    "item":"redtech:ettroite_dust",
+    "count": 2
+  }
+}

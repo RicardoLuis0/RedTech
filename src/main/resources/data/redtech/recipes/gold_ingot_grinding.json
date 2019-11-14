@@ -1,0 +1,11 @@
+{
+  "type": "redtech:grinding",
+  "ingredient": {
+    "tag": "forge:ingots/gold"
+  },
+  "result": {
+    "item":"redtech:gold_dust",
+    "count": 1
+  },
+  "grindingtime": 400
+}

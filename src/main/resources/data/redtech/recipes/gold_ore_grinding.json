@@ -1,0 +1,10 @@
+{
+  "type": "redtech:grinding",
+  "ingredient": {
+    "tag": "forge:ores/gold"
+  },
+  "result": {
+    "item":"redtech:gold_dust",
+    "count": 2
+  }
+}

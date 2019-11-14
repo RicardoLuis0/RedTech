@@ -1,0 +1,10 @@
+{
+  "type": "redtech:grinding",
+  "ingredient": {
+    "tag": "forge:ores/iron"
+  },
+  "result": {
+    "item":"redtech:iron_dust",
+    "count": 2
+  }
+}

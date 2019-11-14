@@ -1,14 +1,19 @@
 package com.ricardoredstone.redtech.implementation.recipes;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.ricardoredstone.redtech.RedTechMod;
+import com.ricardoredstone.redtech.util.RecipeHelper;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.JsonUtils;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
@@ -17,19 +22,31 @@ public class GrinderRecipe implements IRecipe<IInventory> {
     private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<GrinderRecipe> {
 
         @Override
-        public GrinderRecipe read(ResourceLocation recipeId, JsonObject json) {
-            throw new RuntimeException("GrinderRecipe::Serializer::read unimplemented");
+        public GrinderRecipe read(ResourceLocation recipeId, JsonObject json) {//CookingRecipeSerializer used as reference
+            return new GrinderRecipe(recipeId,
+                    JSONUtils.getString(json, "group", ""),
+                    JSONUtils.getInt(json,"grindingtime",800),
+                    RecipeHelper.getIngredient(json,"ingredient"),
+                    ShapedRecipe.deserializeItem(JSONUtils.getJsonObject(json, "result"))
+            );
         }
 
         @Nullable
         @Override
         public GrinderRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-            throw new RuntimeException("GrinderRecipe::Serializer::read unimplemented");
+            String group=buffer.readString();
+            int grindingTime=buffer.readInt();
+            Ingredient ingredient=Ingredient.read(buffer);
+            ItemStack result=buffer.readItemStack();
+            return new GrinderRecipe(recipeId,group,grindingTime,ingredient,result);
         }
 
         @Override
         public void write(PacketBuffer buffer, GrinderRecipe recipe) {
-            throw new RuntimeException("GrinderRecipe::Serializer::write unimplemented");
+            buffer.writeString(recipe.group);
+            buffer.writeInt(recipe.grindingTime);
+            recipe.ingredient.write(buffer);
+            buffer.writeItemStack(recipe.result);
         }
     }
 
@@ -43,14 +60,18 @@ public class GrinderRecipe implements IRecipe<IInventory> {
     public static final IRecipeType<GrinderRecipe> TYPE = new GrinderRecipeType();
     public final ResourceLocation id;
     public final String group;
-    private final Ingredient ingredient;
-    private final ItemStack output;
 
-    GrinderRecipe(String name,String group,Ingredient ingredient,ItemStack output){
-        id=RedTechMod.makeResourceLocation(name);
+    private final Ingredient ingredient;
+    private final ItemStack result;
+
+    private final int grindingTime;
+
+    GrinderRecipe(ResourceLocation id,String group,int grindingTime,Ingredient ingredient,ItemStack result){
+        this.id=id;
         this.ingredient=ingredient;
-        this.output=output;
+        this.result=result;
         this.group=group;
+        this.grindingTime=grindingTime;
     }
     @Override
     public boolean matches(IInventory inv, World worldIn) {
@@ -59,7 +80,7 @@ public class GrinderRecipe implements IRecipe<IInventory> {
 
     @Override
     public ItemStack getCraftingResult(IInventory inv) {
-        return output.copy();
+        return result.copy();
     }
 
     @Override
@@ -69,7 +90,7 @@ public class GrinderRecipe implements IRecipe<IInventory> {
 
     @Override
     public ItemStack getRecipeOutput() {
-        return output;
+        return result;
     }
 
     @Override
@@ -97,5 +118,13 @@ public class GrinderRecipe implements IRecipe<IInventory> {
     @Override
     public IRecipeType<?> getType() {
         return TYPE;
+    }
+
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public int getGrindingTime() {
+        return grindingTime;
     }
 }

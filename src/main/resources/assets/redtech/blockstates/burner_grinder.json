@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north": { "model": "redtech:block/burner_grinder" },
-    "facing=south": { "model": "redtech:block/burner_grinder", "y": 180 },
-    "facing=west": { "model": "redtech:block/burner_grinder", "y": 270 },
-    "facing=east": { "model": "redtech:block/burner_grinder", "y": 90 }
+    "facing=north,lit=false": { "model": "redtech:block/burner_grinder" },
+    "facing=south,lit=false": { "model": "redtech:block/burner_grinder", "y": 180 },
+    "facing=west,lit=false": { "model": "redtech:block/burner_grinder", "y": 270 },
+    "facing=east,lit=false": { "model": "redtech:block/burner_grinder", "y": 90 },
+    "facing=north,lit=true": { "model": "redtech:block/burner_grinder_on" },
+    "facing=south,lit=true": { "model": "redtech:block/burner_grinder_on", "y": 180 },
+    "facing=west,lit=true": { "model": "redtech:block/burner_grinder_on", "y": 270 },
+    "facing=east,lit=true": { "model": "redtech:block/burner_grinder_on", "y": 90 }
   }
 }

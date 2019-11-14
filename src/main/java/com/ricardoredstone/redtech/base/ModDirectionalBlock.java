@@ -3,6 +3,7 @@ package com.ricardoredstone.redtech.base;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateContainer;
@@ -17,8 +18,7 @@ public class ModDirectionalBlock extends ModSimpleBlock {//directional block (ex
     public final boolean reverse;
 
     public ModDirectionalBlock(String name, Properties block_properties) {
-        super(name, block_properties);
-        this.reverse=false;
+        this(name, block_properties,true);
     }
 
     public ModDirectionalBlock(String name, Properties block_properties, boolean reverse) {
@@ -27,8 +27,7 @@ public class ModDirectionalBlock extends ModSimpleBlock {//directional block (ex
     }
 
     public ModDirectionalBlock(String name, Properties block_properties, Item.Properties item_properties) {
-        super(name, block_properties, item_properties);
-        this.reverse=false;
+        this(name, block_properties, item_properties,true);
     }
 
     public ModDirectionalBlock(String name, Properties block_properties, Item.Properties item_properties, boolean reverse) {
@@ -36,19 +35,9 @@ public class ModDirectionalBlock extends ModSimpleBlock {//directional block (ex
         this.reverse=reverse;
     }
 
-    protected Direction getFacing(BlockPos pos, LivingEntity entity) {
-        Direction dir=Direction.getFacingFromVector((float) (entity.posX - pos.getX()), (float) (entity.posY - pos.getY()), (float) (entity.posZ - pos.getZ()));
-        if(reverse){
-            return dir.getOpposite();
-        }
-        return dir;
-    }
-
     @Override
-    public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
-        if(entity!=null) {
-            world.setBlockState(pos, state.with(BlockStateProperties.FACING, getFacing(pos, entity)), 2);
-        }
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return this.getDefaultState().with(BlockStateProperties.FACING, reverse?context.getNearestLookingDirection().getOpposite():context.getNearestLookingDirection());
     }
 
     @Override

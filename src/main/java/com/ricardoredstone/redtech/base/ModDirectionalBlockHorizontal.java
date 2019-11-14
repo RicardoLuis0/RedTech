@@ -1,7 +1,10 @@
 package com.ricardoredstone.redtech.base;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 
@@ -24,8 +27,8 @@ public class ModDirectionalBlockHorizontal extends ModDirectionalBlock { //horiz
     }
 
     @Override
-    protected Direction getFacing(BlockPos pos, LivingEntity entity) {
-        return Direction.getFacingFromVector((float) (entity.posX - pos.getX()), 0, (float) (entity.posZ - pos.getZ()));
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return this.getDefaultState().with(BlockStateProperties.FACING, reverse?context.getPlacementHorizontalFacing().getOpposite():context.getPlacementHorizontalFacing());
     }
 
 }

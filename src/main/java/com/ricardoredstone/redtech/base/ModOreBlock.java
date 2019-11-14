@@ -19,11 +19,19 @@ public class ModOreBlock extends ModSimpleBlock {
     private final OreFeatureConfig.FillerBlockType target;
 
     public ModOreBlock(String name,int count,CountRangeConfig spawn_range){
-        this(name,count,spawn_range,false);
+        this(name,count,spawn_range,-1,false);
+    }
+
+    public ModOreBlock(String name,int count,CountRangeConfig spawn_range,int harvestLevel){
+        this(name,count,spawn_range,harvestLevel,false);
     }
 
     public ModOreBlock(String name,int count,CountRangeConfig spawn_range,boolean nether) {
-        super(name, Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F,3.0F));
+        this(name,count,spawn_range,-1,nether);
+    }
+
+    public ModOreBlock(String name,int count,CountRangeConfig spawn_range,int harverstLevel,boolean nether) {
+        super(name, Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F,3.0F).harvestLevel(harverstLevel));
         this.count=count;
         this.spawn_range=spawn_range;
         this.target=nether?OreFeatureConfig.FillerBlockType.NETHERRACK:OreFeatureConfig.FillerBlockType.NATURAL_STONE;

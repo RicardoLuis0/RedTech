@@ -31,11 +31,6 @@ public class BurnerGrinder extends ModMachine {
         super("burner_grinder", Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5F).sound(SoundType.STONE).lightValue(13).harvestTool(ToolType.PICKAXE).harvestLevel(0));
     }
 
-    @Override
-    protected void interactWith(World worldIn, BlockPos pos, PlayerEntity player) {
-        //TODO
-    }
-
     @Nullable
     @Override
     public TileEntity createNewTileEntity(IBlockReader worldIn) {

@@ -3,10 +3,18 @@ package com.ricardoredstone.redtech.base;
 import com.ricardoredstone.redtech.RedTechMod;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.container.IContainerProvider;
+import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.FurnaceTileEntity;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
 
 abstract public class ModMachine extends AbstractFurnaceBlock implements ModObject {
@@ -22,6 +30,14 @@ abstract public class ModMachine extends AbstractFurnaceBlock implements ModObje
         ResourceLocation reg_name= RedTechMod.makeResourceLocation(name);
         setRegistryName(reg_name);
         blockItem = new BlockItem(this, item_properties).setRegistryName(reg_name);
+    }
+
+    @Override
+    protected void interactWith(World worldIn, BlockPos pos, PlayerEntity player) {
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+        if (tileentity instanceof INamedContainerProvider) {
+            player.openContainer((INamedContainerProvider)tileentity);
+        }
     }
 
     public Item getBlockItem(){

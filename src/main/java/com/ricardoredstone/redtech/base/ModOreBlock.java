@@ -1,6 +1,5 @@
 package com.ricardoredstone.redtech.base;
 
-import com.ricardoredstone.redtech.RedTechMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.biome.Biome;

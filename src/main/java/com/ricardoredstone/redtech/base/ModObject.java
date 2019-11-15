@@ -14,6 +14,7 @@ public interface ModObject {
         //do nothing
     }
 
+    @SuppressWarnings("unused")
     default void setupClient(final FMLClientSetupEvent event){
         //do nothing
     }

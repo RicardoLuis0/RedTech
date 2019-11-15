@@ -1,31 +1,33 @@
 package com.ricardoredstone.redtech.base;
 
 import com.ricardoredstone.redtech.RedTechMod;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.container.IContainerProvider;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.stats.Stats;
-import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 abstract public class ModMachine extends AbstractFurnaceBlock implements ModObject {
 
     private final Item blockItem;
 
-    public ModMachine(String name, Block.Properties block_properties) {
+    protected ModMachine(String name, Block.Properties block_properties) {
         this(name,block_properties,new Item.Properties().group(ItemGroup.DECORATIONS));
     }
 
-    public ModMachine(String name, Block.Properties block_properties, Item.Properties item_properties) {
+    protected ModMachine(String name, Block.Properties block_properties, Item.Properties item_properties) {
         super(block_properties);
         ResourceLocation reg_name= RedTechMod.makeResourceLocation(name);
         setRegistryName(reg_name);

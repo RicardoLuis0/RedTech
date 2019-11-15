@@ -6,7 +6,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 
 public abstract class ModCommonMachineTileEntity extends TileEntity implements ITickableTileEntity , INamedContainerProvider {
-    public ModCommonMachineTileEntity(TileEntityType<?> tileEntityTypeIn) {
+    protected ModCommonMachineTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
     }
 }

@@ -24,3 +24,6 @@ vanilla_resources
 
 # Files from Forge MDK
 forge*changelog.txt
+
+#Paint.net project files
+*.pdn

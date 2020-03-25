@@ -7,8 +7,8 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-public class ModContainers {
-    public static ContainerType<BurnerGrinderContainer> BURNER_GRINDER = BurnerGrinderContainer.createContainerType();
+public final class ModContainers {
+    public static final ContainerType<BurnerGrinderContainer> BURNER_GRINDER = BurnerGrinderContainer.createContainerType();
 
     public static void registerContainerTypes(final RegistryEvent.Register<ContainerType<?>> event){
         event.getRegistry().register(BURNER_GRINDER);
@@ -16,6 +16,5 @@ public class ModContainers {
 
     public static void registerScreens(final FMLClientSetupEvent event){
         ScreenManager.registerFactory(BURNER_GRINDER, BurnerGrinderScreen::new);
-        //TODO
     }
 }

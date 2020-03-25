@@ -86,7 +86,7 @@ public abstract class CommonGrinderTileEntity extends ModCraftingMachineTileEnti
 
     @Override
     public boolean isUsableByPlayer(PlayerEntity player) {
-        return true; //TODO
+        return true;
     }
 
     @Override

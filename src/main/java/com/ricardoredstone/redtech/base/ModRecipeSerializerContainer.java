@@ -1,11 +1,16 @@
 package com.ricardoredstone.redtech.base;
 
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.event.RegistryEvent;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class ModRecipeSerializerContainer<T extends IRecipe<?>> implements ModObject {
     private final IRecipeSerializer<T> serializer;
     private final IRecipeType<T> type;

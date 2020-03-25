@@ -5,6 +5,7 @@ import com.ricardoredstone.redtech.implementation.proxy.ClientProxy;
 import com.ricardoredstone.redtech.implementation.proxy.ServerProxy;
 import com.ricardoredstone.redtech.implementation.registry.*;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
@@ -75,7 +76,7 @@ public final class RedTechMod {
     private void setupClient(final FMLClientSetupEvent event) {
         REGISTRY.setupClient(event);
     }
-
+    
     @SuppressWarnings("unused")
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static final class RegistryEvents {
@@ -92,6 +93,11 @@ public final class RedTechMod {
         @SubscribeEvent
         public static void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
             REGISTRY.registerTileEntities(event);
+        }
+
+        @SubscribeEvent
+        public static void registerContainerTypes(final RegistryEvent.Register<ContainerType<?>> event) {
+            REGISTRY.registerContainerTypes(event);
         }
 
         @SubscribeEvent

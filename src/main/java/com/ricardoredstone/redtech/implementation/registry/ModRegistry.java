@@ -2,6 +2,7 @@ package com.ricardoredstone.redtech.implementation.registry;
 
 import com.ricardoredstone.redtech.base.ModObject;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
@@ -11,7 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import java.util.ArrayList;
 
-public class ModRegistry {
+public final class ModRegistry {
 
     private final ArrayList<ModObject> registry;
 
@@ -26,11 +27,11 @@ public class ModRegistry {
 
     public void setupCommon(final FMLCommonSetupEvent event){
         registry.forEach((e) -> e.setupCommon(event));
-
     }
 
     public void setupClient(final FMLClientSetupEvent event){
         registry.forEach((e) -> e.setupClient(event));
+        ModContainers.registerScreens(event);
     }
 
     public void registerBlocks(final RegistryEvent.Register<Block> event) {
@@ -49,4 +50,7 @@ public class ModRegistry {
         registry.forEach((e) -> e.registerRecipeSerializers(event));
     }
 
+    public void registerContainerTypes(final RegistryEvent.Register<ContainerType<?>> event){
+        ModContainers.registerContainerTypes(event);
+    }
 }

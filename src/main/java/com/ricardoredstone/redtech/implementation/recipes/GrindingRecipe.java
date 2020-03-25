@@ -2,6 +2,7 @@ package com.ricardoredstone.redtech.implementation.recipes;
 
 import com.google.gson.JsonObject;
 import com.ricardoredstone.redtech.RedTechMod;
+import com.ricardoredstone.redtech.implementation.blocks.machines.grinder.CommonGrinderTileEntity;
 import com.ricardoredstone.redtech.util.RecipeHelper;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.inventory.IInventory;
@@ -78,9 +79,10 @@ public class GrindingRecipe implements IRecipe<IInventory> {
         this.group=group;
         this.grindingTime=grindingTime;
     }
+
     @Override
     public boolean matches(IInventory inv, World worldIn) {
-        throw new RuntimeException("GrinderRecipe::matches unimplemented");//TODO
+        return ingredient.test(inv.getStackInSlot(0));
     }
 
     @Override

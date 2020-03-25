@@ -1,6 +1,7 @@
 package com.ricardoredstone.redtech.base;
 
 import com.ricardoredstone.redtech.RedTechMod;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -8,6 +9,10 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class ModSimpleBlock extends Block implements ModObject {
 
     private final Item blockItem;

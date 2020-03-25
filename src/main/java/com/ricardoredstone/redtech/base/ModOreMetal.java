@@ -1,11 +1,16 @@
 package com.ricardoredstone.redtech.base;
 
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class ModOreMetal implements ModObject {
 
     public ModOreBlock ore;

@@ -2,15 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "FFF",
-    "CPC",
-    "INI"
+    "IPI",
+    "RNR"
   ],
   "key": {
     "F": {
       "item": "minecraft:flint"
     },
-    "C": {
-      "tag": "forge:cobblestone"
+    "R": {
+      "tag": "forge:dusts/redstone"
     },
     "P": {
       "item": "minecraft:piston"

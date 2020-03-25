@@ -16,6 +16,6 @@
     "block.redtech.ettroite_alloy_block": "Ettroite Alloy Block",
     "item.redtech.ettroite_alloy_sword": "Ettroite Sword",
 
-    "block.redtech.burner_grinder": "Burner Grinder"
-
+    "block.redtech.burner_grinder": "Burner Grinder",
+    "container.redtech.burner_grinder": "Burner Grinder"
 }

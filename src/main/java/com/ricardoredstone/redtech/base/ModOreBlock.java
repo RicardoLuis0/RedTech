@@ -1,5 +1,6 @@
 package com.ricardoredstone.redtech.base;
 
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.biome.Biome;
@@ -12,6 +13,10 @@ import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class ModOreBlock extends ModSimpleBlock {
 
     private final int count;

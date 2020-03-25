@@ -1,10 +1,16 @@
 package com.ricardoredstone.redtech.base;
 
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.state.properties.BlockStateProperties;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 @SuppressWarnings("unused")
 public class ModDirectionalBlockHorizontal extends ModDirectionalBlock { //horizontal only directional block (ex. machines)
 

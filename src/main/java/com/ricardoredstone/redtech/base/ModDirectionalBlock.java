@@ -1,5 +1,6 @@
 package com.ricardoredstone.redtech.base;
 
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BlockItemUseContext;
@@ -7,6 +8,10 @@ import net.minecraft.item.Item;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class ModDirectionalBlock extends ModSimpleBlock {//directional block (ex. log)
     public final boolean reverse;
 

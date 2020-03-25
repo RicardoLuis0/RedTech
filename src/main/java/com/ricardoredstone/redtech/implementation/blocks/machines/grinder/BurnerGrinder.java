@@ -1,17 +1,14 @@
-package com.ricardoredstone.redtech.implementation.blocks;
+package com.ricardoredstone.redtech.implementation.blocks.machines.grinder;
 
 import com.ricardoredstone.redtech.base.ModMachine;
-import com.ricardoredstone.redtech.implementation.blocks.tile_entities.BurnerGrinderTileEntity;
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
@@ -26,16 +23,25 @@ import java.util.Random;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class BurnerGrinder extends ModMachine {
+
     public BurnerGrinder() {
         super("burner_grinder", Block.Properties.create(Material.ROCK).hardnessAndResistance(3.5F).sound(SoundType.STONE).lightValue(13).harvestTool(ToolType.PICKAXE).harvestLevel(0));
     }
 
-    @Nullable
+    @Override
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        if (stack.hasDisplayName()) {
+            TileEntity entity = worldIn.getTileEntity(pos);
+            if (entity instanceof BurnerGrinderTileEntity) {
+                ((BurnerGrinderTileEntity)entity).setCustomName(stack.getDisplayName());
+            }
+        }
+    }
+
     @Override
     public TileEntity createNewTileEntity(IBlockReader worldIn) {
         return new BurnerGrinderTileEntity();
     }
-
 
     @Override
     @OnlyIn(Dist.CLIENT)
